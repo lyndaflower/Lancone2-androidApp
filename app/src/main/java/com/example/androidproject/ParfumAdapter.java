@@ -17,6 +17,7 @@ public class ParfumAdapter extends BaseAdapter {
         this.mPictures = mPictures;
     }
 
+
     public int getCount() {
         return mPictures.length;
     }

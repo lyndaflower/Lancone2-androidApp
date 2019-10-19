@@ -19,7 +19,6 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
-        android:fontFamily="@font/abril_fatface"
         android:text="LANCOME paris"
         android:layout_marginLeft="5dp"
         android:textColor="@color/colorTextIcons"
@@ -34,7 +33,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="@color/ColorButton"
-        android:fontFamily="@font/arapey"
         android:text="Discover"
         android:textColor="@color/colorTextIcons" />
 

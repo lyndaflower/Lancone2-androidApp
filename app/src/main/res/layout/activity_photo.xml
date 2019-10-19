@@ -14,7 +14,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="12dp"
         android:text="Perfumes are the feelings of flowers"
-        android:fontFamily="@font/alice"
         android:textSize="25sp"
         android:textStyle="bold" />
 
@@ -53,7 +52,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="0dp"
-        android:fontFamily="@font/arapey"
         android:background="@color/colorAccent"
         android:text="shop "
         android:textColor="@color/colorTextIcons" />
