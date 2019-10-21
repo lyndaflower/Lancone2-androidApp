@@ -1,7 +1,10 @@
 
-package com.example.androidproject;
+package com.example.androidproject.models;
 
 import java.util.List;
+
+import com.example.androidproject.models.Business;
+import com.example.androidproject.models.Region;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

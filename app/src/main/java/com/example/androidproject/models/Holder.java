@@ -1,4 +1,6 @@
-package com.example.androidproject;
+package com.example.androidproject.models;
+
+import com.example.androidproject.BuildConfig;
 
 public class Holder {
     public static final String YELP_BASE_URL = "https://api.yelp.com/v3/";

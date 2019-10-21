@@ -1,15 +1,21 @@
-package com.example.androidproject;
+package com.example.androidproject.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.net.DnsResolver;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.example.androidproject.models.Business;
+import com.example.androidproject.models.Category;
+import com.example.androidproject.perfumesInter.ParfumeInter;
+import com.example.androidproject.perfumesInter.PerfumeRetro;
+import com.example.androidproject.R;
+import com.example.androidproject.models.YelpPurabella;
 
 import java.util.List;
 
@@ -28,6 +34,7 @@ public class FinalActivity extends AppCompatActivity {
     @BindView(R.id.listProgress) ListView mListprogress;
     @BindView(R.id.progressBar) ProgressBar mProgressText;
     @BindView(R.id.errorView) TextView mErrorView;
+
 
 
     @Override
@@ -71,7 +78,10 @@ public class FinalActivity extends AppCompatActivity {
                         Category spray = perfumesList.get(i).getCategories().get(0);
                         categories[i] = spray.getTitle();
                     }
-//                    ArrayAdapter bodySpray = new ParfumAdapter(FinalActivity.this, android.R.layout.simple_list_item_1, perfumes, categories);
+                    ArrayAdapter bodySpray = new AdapterMyPerfumes(FinalActivity.this, android.R.layout.simple_list_item_1, perfumes, categories);
+                    mListprogress.setAdapter(bodySpray);
+
+                    ShowBodySpray();
 
                 }
             }

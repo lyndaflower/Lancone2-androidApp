@@ -1,4 +1,6 @@
-package com.example.androidproject;
+package com.example.androidproject.perfumesInter;
+
+import com.example.androidproject.models.YelpPurabella;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
