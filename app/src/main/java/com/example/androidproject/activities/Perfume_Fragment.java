@@ -1,6 +1,8 @@
 package com.example.androidproject.activities;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -29,15 +31,15 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Perfume_Fragment extends Fragment {
+public class Perfume_Fragment extends Fragment implements View.OnClickListener {
 
     @BindView(R.id.fragmentView) ImageView mImageView;
     @BindView(R.id.perfumName) TextView mText;
     @BindView(R.id.ratingText) TextView mRatingText;
     @BindView(R.id.location) TextView mLocation;
-    @BindView(R.id.phoneText) TextView mNumber;
-    @BindView(R.id.addressText) TextView mAdresses;
     @BindView(R.id.button) Button mButton;
+    @BindView(R.id.phoneText) TextView mPhone;
+    @BindView(R.id.addressText) TextView textadress;
 
     private Business mSpray;
 
@@ -63,8 +65,8 @@ public class Perfume_Fragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View create = inflater.inflate(R.layout.fragment_perfume_, container, false);
-        ButterKnife.bind(this, create);
+        View view = inflater.inflate(R.layout.fragment_perfume_, container, false);
+        ButterKnife.bind(this, view);
         Picasso.get().load(mSpray.getUrl()).into(mImageView);
         List<String> more = new ArrayList<>();
 
@@ -74,10 +76,29 @@ public class Perfume_Fragment extends Fragment {
         }
         mText.setText(mSpray.getName());
         mLocation.setText(android.text.TextUtils.join(" , ", more));
-        mNumber.setText(mSpray.getPhone());
-        mAdresses.setText(mSpray.getLocation().toString());
+        mPhone.setText(mSpray.getPhone());
+        textadress.setText(mSpray.getLocation().toString());
 
-        return create;
+        mPhone.setOnClickListener(this);
+        textadress.setOnClickListener(this);
+
+
+        return view;
     }
 
+    @Override
+    public void onClick(View v) {
+        if (v == mPhone) {
+            Intent phoneIntent = new Intent(Intent.ACTION_DIAL,
+                    Uri.parse("tel:" + mSpray.getPhone()));
+            startActivity(phoneIntent);
+        }
+        if (v == textadress) {
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("geo:" + mSpray.getCoordinates().getLatitude()
+                            + "," + mSpray.getCoordinates().getLongitude()
+                            + "?q=(" + mSpray.getName() + ")"));
+            startActivity(mapIntent);
+        }
+    }
 }

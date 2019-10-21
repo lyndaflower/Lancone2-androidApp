@@ -95,7 +95,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="(+250) 781213705"
-
+                    android:layout_marginTop="100dp"
+                    android:drawableLeft="@drawable/ic_call_black_24dp"
                     android:id="@+id/phoneText"
                     android:drawablePadding="4dp"
                     android:textColor="@color/colorTextIcons"
@@ -107,7 +108,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:text="123 SW Best Ever Ave. Portland, Oregon, 97222"
+                    android:drawableLeft="@drawable/ic_location_on_black_24dp"
                     android:drawablePadding="4dp"
                     android:id="@+id/addressText"
                     android:textColor="@color/colorTextIcons"
@@ -124,6 +127,7 @@
                 android:text="Shop more"
                 android:id="@+id/button"
                 android:layout_alignParentBottom="true"
+                android:fontFamily="@font/actor"
                 android:background="@color/colorAccent"
                 android:textColor="@color/colorTextIcons"
                 android:textSize="15sp" />

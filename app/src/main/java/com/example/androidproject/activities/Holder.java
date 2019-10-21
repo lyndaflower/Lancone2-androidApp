@@ -1,5 +1,4 @@
 package com.example.androidproject.activities;
-
 import com.example.androidproject.BuildConfig;
 
 public class Holder {
