@@ -167,7 +167,7 @@ public class Business {
         this.categories = categories;
     }
 
-    public Double getRating() {
+    public double getRating() {
         return rating;
     }
 

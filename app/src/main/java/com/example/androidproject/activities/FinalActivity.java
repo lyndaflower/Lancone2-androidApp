@@ -1,6 +1,8 @@
 package com.example.androidproject.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +12,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.androidproject.listAdapter;
 import com.example.androidproject.models.Business;
 import com.example.androidproject.models.Category;
 import com.example.androidproject.perfumesInter.ParfumeInter;
@@ -27,15 +30,17 @@ import retrofit2.Response;
 
 public class FinalActivity extends AppCompatActivity {
 
-    @BindView(R.id.view1) TextView mView;
-    @BindView(R.id.view2) TextView mMake;
-    @BindView(R.id.view3) TextView mView1;
-    @BindView(R.id.view4) TextView mMake2;
-    @BindView(R.id.listProgress) ListView mListprogress;
+//    @BindView(R.id.view1) TextView mView;
+//    @BindView(R.id.view2) TextView mMake;
+//    @BindView(R.id.view3) TextView mView1;
+//    @BindView(R.id.view4) TextView mMake2;
+//    @BindView(R.id.listProgress) ListView mListprogress;
+    @BindView(R.id.recyclerView) RecyclerView mRecycle;
     @BindView(R.id.progressBar) ProgressBar mProgressText;
     @BindView(R.id.errorView) TextView mErrorView;
 
-
+private listAdapter mAdapter;
+private List<Business> mSpray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,25 +71,20 @@ public class FinalActivity extends AppCompatActivity {
                 hideProgressBar();
 
                 if (response.isSuccessful()) {
-                    List<Business> perfumesList = response.body().getBusinesses();
-                    String[] perfumes = new String[perfumesList.size()];
-                    String[] categories = new String[perfumesList.size()];
+                    mSpray = response.body().getBusinesses();
+                    mAdapter = new listAdapter(FinalActivity.this, mSpray);
+                    mRecycle.setAdapter(mAdapter);
+                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(FinalActivity.this);
+                    mRecycle.setLayoutManager(layoutManager);
+                    mRecycle.setHasFixedSize(true);
 
-                    for (int i = 0; i < perfumes.length; i++) {
-                        perfumes[i] = perfumesList.get(i).getName();
-                    }
-
-                    for (int i = 0; i < categories.length; i++) {
-                        Category spray = perfumesList.get(i).getCategories().get(0);
-                        categories[i] = spray.getTitle();
-                    }
-                    ArrayAdapter bodySpray = new AdapterMyPerfumes(FinalActivity.this, android.R.layout.simple_list_item_1, perfumes, categories);
-                    mListprogress.setAdapter(bodySpray);
-
-                    ShowBodySpray();
-
+                    showBodySpray();
+                } else {
+                    showUnsuccessfulMessage();
                 }
             }
+
+
 
             @Override
             public void onFailure(Call<YelpPurabella> call, Throwable t) {
@@ -96,12 +96,12 @@ public class FinalActivity extends AppCompatActivity {
                 mErrorView.setText("Something went wrong. Please try again later");
                 mErrorView.setVisibility(View.VISIBLE);
             }
-            private void ShowBodySpray(){
-                mListprogress.setVisibility(View.VISIBLE);
-                mView.setVisibility(View.VISIBLE);
-                mView1.setVisibility(View.VISIBLE);
-                mMake2.setVisibility(View.VISIBLE);
-                mMake.setVisibility(View.VISIBLE);
+            private void showFailureMessage(){
+                mErrorView.setText("Something went wrong. Please check your Internet connection and try again later");
+                mErrorView.setVisibility(View.VISIBLE);
+            }
+            private void showBodySpray(){
+          mRecycle.setVisibility(View.VISIBLE);
             }
 
             private void hideProgressBar(){
