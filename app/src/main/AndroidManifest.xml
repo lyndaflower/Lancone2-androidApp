@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activities.Detail_activity"></activity>
-        <activity android:name=".List_final_Activity" />
+        <activity android:name=".activities.List_final_Activity" />
         <activity android:name=".activities.FinalActivity" />
         <activity android:name=".activities.AppActivity" />
         <activity

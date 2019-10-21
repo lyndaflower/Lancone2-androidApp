@@ -1,4 +1,4 @@
-package com.example.androidproject.models;
+package com.example.androidproject.activities;
 
 import com.example.androidproject.BuildConfig;
 

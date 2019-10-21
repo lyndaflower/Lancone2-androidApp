@@ -7,14 +7,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.example.androidproject.listAdapter;
+import com.example.androidproject.adapters.listAdapter;
 import com.example.androidproject.models.Business;
-import com.example.androidproject.models.Category;
 import com.example.androidproject.perfumesInter.ParfumeInter;
 import com.example.androidproject.perfumesInter.PerfumeRetro;
 import com.example.androidproject.R;
@@ -63,7 +60,7 @@ private List<Business> mSpray;
 
         ParfumeInter client = PerfumeRetro.getClient();
 
-        Call<YelpPurabella> call = client.getParfumes(location, "Body spray");
+        Call<YelpPurabella> call = client.getParfumes(location, "perfume");
         call.enqueue(new Callback<YelpPurabella>() {
             @Override
             public void onResponse(Call<YelpPurabella> call, Response<YelpPurabella> response) {

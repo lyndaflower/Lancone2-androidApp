@@ -1,7 +1,5 @@
 package com.example.androidproject.perfumesInter;
 
-import com.example.androidproject.perfumesInter.ParfumeInter;
-
 import java.io.IOException;
 
 import okhttp3.Interceptor;
@@ -13,7 +11,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.example.androidproject.BuildConfig.YELP_API_KEY;
-import static com.example.androidproject.models.Holder.YELP_BASE_URL;
+import static com.example.androidproject.activities.Holder.YELP_BASE_URL;
 
 public class PerfumeRetro {
     private static Retrofit retrofit = null;

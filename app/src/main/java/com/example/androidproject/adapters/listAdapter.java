@@ -1,4 +1,4 @@
-package com.example.androidproject;
+package com.example.androidproject.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.androidproject.R;
 import com.example.androidproject.models.Business;
 import com.squareup.picasso.Picasso;
 
