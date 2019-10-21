@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class PerfumesDetailctivity extends AppCompatActivity {
+import com.example.androidproject.R;
+
+public class Detail_activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_perfumes_detailctivity);
+        setContentView(R.layout.activity_detail_activity);
     }
 }
