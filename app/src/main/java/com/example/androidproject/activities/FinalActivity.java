@@ -60,7 +60,7 @@ private List<Business> mSpray;
 
         ParfumeInter client = PerfumeRetro.getClient();
 
-        Call<YelpPurabella> call = client.getParfumes(location, "perfume");
+        Call<YelpPurabella> call = client.getParfumes(location, "perfumes");
         call.enqueue(new Callback<YelpPurabella>() {
             @Override
             public void onResponse(Call<YelpPurabella> call, Response<YelpPurabella> response) {

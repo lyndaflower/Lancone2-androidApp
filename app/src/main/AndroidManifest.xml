@@ -12,12 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activities.Detail_activity"></activity>
-        <activity android:name=".activities.List_final_Activity" />
         <activity android:name=".activities.FinalActivity" />
         <activity android:name=".activities.AppActivity" />
         <activity
-            android:name=".activities.PhotoActivity"
-            android:theme="@style/NoActionBarTheme" />
+            android:name=".activities.PhotoActivity" />
         <activity
             android:name=".activities.MainActivity"
             android:theme="@style/NoActionBarTheme">

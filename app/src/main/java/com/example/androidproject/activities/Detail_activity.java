@@ -32,10 +32,10 @@ public class Detail_activity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         mSpray = Parcels.unwrap(getIntent().getParcelableExtra("perfumes"));
-        int  flame = getIntent().getIntExtra("position",0);
+        int  startingPosition = getIntent().getIntExtra("position",0);
 
         viewAdapter =new AdapterPager(getSupportFragmentManager(), FragmentPagerAdapter,mSpray);
         mPager.setAdapter(viewAdapter);
-        mPager.setCurrentItem(flame);
+        mPager.setCurrentItem(startingPosition);
     }
 }

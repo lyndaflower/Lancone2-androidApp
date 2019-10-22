@@ -13,10 +13,16 @@ public class AdapterPager extends FragmentPagerAdapter {
 
     private List<Business> mSpray;
 
-    public AdapterPager(FragmentManager fm, int fragmentPagerAdapter, List<Business> Beaty) {
-        super(fm );
-        mSpray = Beaty;
+//    public AdapterPager(FragmentManager fm,  List<Business> spray) {
+//        super(fm );
+//        mSpray = spray;
+//    }
+
+    public AdapterPager(FragmentManager supportFragmentManager, int fragmentPagerAdapter, List<Business> perfumes) {
+        super(supportFragmentManager);
+        mSpray = perfumes;
     }
+
     @Override
     public Fragment getItem(int position){
         return Perfume_Fragment.newInstance(mSpray.get(position));

@@ -35,7 +35,6 @@
                 android:id="@+id/perfumName"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:paddingLeft="@android:dimen/thumbnail_height"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -55,7 +54,6 @@
                 android:text="Brunch, American"
                 android:id="@+id/location"
                 android:layout_below="@+id/perfumName"
-                android:paddingLeft="@android:dimen/thumbnail_width"
                 android:paddingTop="15dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
@@ -74,7 +72,6 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_above="@+id/button"
                 android:paddingLeft="30dp"
                 android:paddingTop="20dp"
                 android:paddingRight="30dp">
@@ -95,7 +92,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="(+250) 781213705"
-                    android:layout_marginTop="100dp"
+                    android:layout_marginTop="70dp"
                     android:drawableLeft="@drawable/ic_call_black_24dp"
                     android:id="@+id/phoneText"
                     android:drawablePadding="4dp"

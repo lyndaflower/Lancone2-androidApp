@@ -27,17 +27,17 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class Perfume_Fragment extends Fragment implements View.OnClickListener {
 
-    @BindView(R.id.fragmentView) ImageView mImageView;
+    @BindView(R.id.fragmentView) ImageView mImage;
     @BindView(R.id.perfumName) TextView mText;
     @BindView(R.id.ratingText) TextView mRatingText;
     @BindView(R.id.location) TextView mLocation;
-    @BindView(R.id.button) Button mButton;
     @BindView(R.id.phoneText) TextView mPhone;
     @BindView(R.id.addressText) TextView textadress;
 
@@ -50,7 +50,7 @@ public class Perfume_Fragment extends Fragment implements View.OnClickListener {
     public static Perfume_Fragment newInstance(Business perfume) {
         Perfume_Fragment bodySpray = new Perfume_Fragment();
         Bundle args = new Bundle();
-        args.putParcelable("perfume", Parcels.wrap(perfume));
+        args.putParcelable("perfumes", Parcels.wrap(perfume));
         bodySpray.setArguments(args);
         return bodySpray;
     }
@@ -59,7 +59,7 @@ public class Perfume_Fragment extends Fragment implements View.OnClickListener {
     public void onCreate(Bundle savedInstance) {
 
         super.onCreate(savedInstance);
-        mSpray = Parcels.unwrap(getArguments().getParcelable("perfume"));
+        mSpray = Parcels.unwrap(getArguments().getParcelable("perfumes"));
     }
 
 
@@ -67,7 +67,9 @@ public class Perfume_Fragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_perfume_, container, false);
         ButterKnife.bind(this, view);
-        Picasso.get().load(mSpray.getUrl()).into(mImageView);
+
+        Picasso.get().load(mSpray.getImageUrl()).into(mImage);
+
         List<String> more = new ArrayList<>();
 
 

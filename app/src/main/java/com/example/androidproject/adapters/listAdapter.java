@@ -26,9 +26,9 @@ public class listAdapter extends RecyclerView.Adapter<listAdapter.PerfumeViewHol
     private List<Business> mSpray;
     private Context mContext;
 
- public listAdapter (Context context, List<Business> spray) {
+ public listAdapter (Context context, List<Business> perfumes) {
         mContext = context;
-        mSpray = spray;
+        mSpray = perfumes;
     }
 
     @Override
@@ -73,7 +73,7 @@ public class listAdapter extends RecyclerView.Adapter<listAdapter.PerfumeViewHol
          int itemPosition = getLayoutPosition();
          Intent intent = new Intent(mContext, Detail_activity.class);
          intent.putExtra("position", itemPosition);
-         intent.putExtra("perfume", Parcels.wrap(mSpray));
+         intent.putExtra("perfumes", Parcels.wrap(mSpray));
          mContext.startActivity(intent);
      }
     }
